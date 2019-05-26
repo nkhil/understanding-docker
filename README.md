@@ -52,9 +52,17 @@ Before you close this, try running
 
 For eg: `docker run -p 8001:8000` maps the port `8001` on the local machine to `8000` on the docker container.
 
+- `docker stop <$container-id>` to stop the container from running. For eg: `docker stop 0e019041263a`
+
 - `ctrl + p + q` to detach the terminal from the docker container. The contailer will still be running (which can be verified by running `docker ps`)
 
 Make sure you're running the container like so: `docker run -p 8000:8000 -it 2a2193a6c429 node server.js` where `2a2193a6c429` is the image ID. The `-it` part is what makes the `ctrl + p, ctrl + q` combo to work.
+
+- If you make any changes to your `Dockerfile`, make sure you're running `docker build . -t <$repo-name>:<$tag-name>` or it won't update.
+
+- When you build a new image with the same repo name and tag name that existed before, it will re-assign it to the newest build, and change the old repo and tags to `<none>`.
+
+- Running something like `docker run -d -p 8000:8000 2f177eb214b2` with the `-d` flag automatically runs it in the bg. Try using it and then running `docker ps`.
 
 ## Creating a simple node app
 
