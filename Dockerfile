@@ -9,4 +9,3 @@ ADD . /app
 
 CMD ["node", "server.js"]
 # Takes an array of parametres. 
-# 
