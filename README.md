@@ -40,13 +40,21 @@ When you're making software for the cloud, docker allows you to develop locally,
 
 - `docker images` to list all images.
 
-- `docker run -it <image_id> /bin/sh` - the `/bin/sh` tells it to load up the shell which is located at `/bin/sh`. the `-it` flag is to map your keyboard input to stdin so you can type commands directly into the container. (note `image_id` is replaced by the actual ID). You can use commands in here like `pwd`, `ls`, `touch` etc in here.
+- `docker run -it <$image_id> /bin/sh` - the `/bin/sh` tells it to load up the shell which is located at `/bin/sh`. the `-it` flag is to map your keyboard input to stdin so you can type commands directly into the container. (note `image_id` is replaced by the actual ID). You can use commands in here like `pwd`, `ls`, `touch` etc in here.
 
 As long as this process is running, your docker container is running. If you for eg type `exit`, the docker container will stop.
 
 Before you close this, try running
 
 - `docker ps` (stands for processes) will show you all the process running. Now if you exit the shell, and then try `docker ps` you will not see that container.
+
+- `docker run -p <$localport>:<$dockerport>` maps a port on your local machine to a port on your docker container.
+
+For eg: `docker run -p 8001:8000` maps the port `8001` on the local machine to `8000` on the docker container.
+
+- `ctrl + p + q` to detach the terminal from the docker container. The contailer will still be running (which can be verified by running `docker ps`)
+
+Make sure you're running the container like so: `docker run -p 8000:8000 -it 2a2193a6c429 node server.js` where `2a2193a6c429` is the image ID. The `-it` part is what makes the `ctrl + p, ctrl + q` combo to work.
 
 ## Creating a simple node app
 
