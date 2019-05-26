@@ -31,3 +31,19 @@ Every time you run the `docker build` command, you're not replacing the old dock
 The thing that really makes Docker special isn't just that it can control the resources each container can use. It's the fact that you can take any docker image, and you can start it up as a container on a different system, and you can be sure that the new container will run the same way the original container runs on your computer. This portability is what makes Docker special, and popular.
 
 When you're making software for the cloud, docker allows you to develop locally, test locally, and ship your code to another machine in the cloud and guarantee that your code will run in the same way in the cloud that it runs locally.
+
+## Commands
+
+- `docker build .` while you're in the desired root repository.
+
+- `docker build . -t new-repository-name:new-tag-name` to build with a specific repo and tag name.
+
+- `docker images` to list all images.
+
+- `docker run -it <image_id> /bin/sh` - the `/bin/sh` tells it to load up the shell which is located at `/bin/sh`. the `-it` flag is to map your keyboard input to stdin so you can type commands directly into the container. (note `image_id` is replaced by the actual ID). You can use commands in here like `pwd`, `ls`, `touch` etc in here.
+
+As long as this process is running, your docker container is running. If you for eg type `exit`, the docker container will stop.
+
+Before you close this, try running
+
+- `docker ps` (stands for processes) will show you all the process running. Now if you exit the shell, and then try `docker ps` you will not see that container.
