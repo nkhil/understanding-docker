@@ -47,3 +47,17 @@ As long as this process is running, your docker container is running. If you for
 Before you close this, try running
 
 - `docker ps` (stands for processes) will show you all the process running. Now if you exit the shell, and then try `docker ps` you will not see that container.
+
+## Creating a simple node app
+
+```docker
+FROM node:9.3.0-alpine
+# This will set the base image to node (https://hub.docker.com/_/node) with the `9.3.0` tag.
+
+WORKDIR /app
+# if /app doesn't exist, it will create it for you.
+
+ADD . /app
+# ADD takes 2 parametres. 1: source 2: destination
+
+```
