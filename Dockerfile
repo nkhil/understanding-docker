@@ -7,3 +7,6 @@ WORKDIR /app
 ADD . /app
 # ADD takes 2 parametres. 1: source 2: destination
 
+CMD ["node", "server.js"]
+# Takes an array of parametres. 
+# 
