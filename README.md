@@ -80,3 +80,9 @@ CMD ["node", "server.js"]
 # Takes an array of parametres.
 
 ```
+
+## How to debug your `Dockerfile`
+
+(Source)[https://www.youtube.com/watch?v=RH_I0KXHBcA]
+
+When you run `docker run <$image-id>`, it creates intermediate docker images that you can launch, and try to run the right version of scripts to see if it creates the desired action. If it does, you can now go back to your docker file and make the changes there.
